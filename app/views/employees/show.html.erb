@@ -1,0 +1,17 @@
+<br />
+<br />
+<table class="table table-striped table is-bordered">
+  <th>Employee_ID</th>
+  <th>Employee_name</th>
+  <th>Employee_skill</th>
+  <th>Company_ID</th>
+
+  <tr>
+    <td><%= @emp.id %></td>
+    <td><%= @emp.name %></td>
+    <td><%= @emp.skill %></td>
+    <td><%= @emp.company_id %></td>
+  </tr>
+</table>
+&nbsp;<%= link_to 'Back',root_path, class: "btn btn-secondary" %> &nbsp;<%=
+link_to 'Edit',edit_employee_path, class: "button is-black" %>

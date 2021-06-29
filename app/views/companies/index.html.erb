@@ -1,0 +1,23 @@
+<br />
+<br />
+<% if notice.present? %>
+<p class="alert alert-success" role="alert"><%= notice %></p>
+<% end %>
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Company_ID</th>
+      <th scope="col">Company_Name</th>
+      <th scope="col">Company_desc</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @companies.each do |c| %>
+    <tr>
+      <td><%= c.id %></td>
+      <td><%= c.name %></td>
+      <td><%= c.desc %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

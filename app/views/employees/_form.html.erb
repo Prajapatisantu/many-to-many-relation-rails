@@ -1,0 +1,26 @@
+<div class="container">
+  <%= form_with(model:@employee, local: true) do |form| %>
+
+  <div>
+    <%= form.label :Name, class: 'form-label' %><br />
+    <%= form.text_field :name, class:'form-control', placeholder: 'Enter Name'
+    %>
+  </div>
+  <br />
+  <div>
+    <%= form.label :Skill, class: 'form-label' %><br />
+    <%= form.text_field :skill, class:'form-control', placeholder: 'Enter Skill'
+    %>
+  </div>
+  <br />
+  <div>
+    <%= form.label :Company_ID, class: 'form-label' %><br />
+    <%= form.text_field :company_id, class:'form-control', placeholder:'Enter
+    Company_ID' %>
+  </div>
+  <br />
+
+  <div>&nbsp;<%= form.submit class:'btn btn-success' %></div>
+  <br />
+  <% end %>
+</div>

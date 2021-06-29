@@ -1,0 +1,41 @@
+<br />
+<% if notice.present? %>
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <strong><%= notice %></strong>
+</div>
+<% end %> &nbsp;<%= link_to 'New Employee' ,new_employee_path,class:'btn
+btn-dark' %>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Employee_ID</th>
+      <th scope="col">Employee_Name</th>
+      <th scope="col">Employee_desc</th>
+      <th scope="col">Company_ID</th>
+      <th scope="col">Action 1</th>
+      <th scope="col">Action 2</th>
+      <th scope="col">Action 3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @employees.each do |e| %>
+    <tr>
+      <td><%= e.id %></td>
+      <td><%= e.name %></td>
+      <td><%= e.skill %></td>
+      <td><%= e.company_id %></td>
+      <td><%= link_to 'Show' ,employee_path(e),class:'nav-link active' %></td>
+      <td>
+        <%= link_to 'Edit' , edit_employee_path(e),class:'nav-link active' %>
+      </td>
+      <td>
+        <%= link_to 'Destroy' ,employee_path(e),class:'nav-link active',method:
+        :delete, data: {confirm: "Are you Sure"} %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<br />
+<br />
