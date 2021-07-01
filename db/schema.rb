@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_29_034808) do
+ActiveRecord::Schema.define(version: 2021_07_01_120213) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,13 @@ ActiveRecord::Schema.define(version: 2021_06_29_034808) do
     t.index ["company_id"], name: "index_employees_on_company_id"
   end
 
+  create_table "employees_projects", id: false, force: :cascade do |t|
+    t.bigint "employee_id", null: false
+    t.bigint "project_id", null: false
+    t.index ["employee_id", "project_id"], name: "index_employees_projects_on_employee_id_and_project_id"
+    t.index ["project_id", "employee_id"], name: "index_employees_projects_on_project_id_and_employee_id"
+  end
+
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -64,10 +71,29 @@ ActiveRecord::Schema.define(version: 2021_06_29_034808) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "project_assignments", force: :cascade do |t|
+    t.bigint "employee_id", null: false
+    t.bigint "project_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["employee_id"], name: "index_project_assignments_on_employee_id"
+    t.index ["project_id"], name: "index_project_assignments_on_project_id"
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.string "desc"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "employee_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "project_assignments", "employees"
+  add_foreign_key "project_assignments", "projects"
 end

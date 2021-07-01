@@ -14,11 +14,16 @@
   </div>
   <br />
   <div>
-    <%= form.label :Company_ID, class: 'form-label' %><br />
-    <%= form.text_field :company_id, class:'form-control', placeholder:'Enter
-    Company_ID' %>
+    <%= form.label :Company, class: 'form-label' %><br />
+    <%= form.collection_select:company_id, Company.all,:id,:name %>
   </div>
   <br />
+
+  <!-- <div>
+    <%= form.label :Projects, class: 'form-label' %><br />
+    <%= form.collection_select:project_id, Project.all,:id,:name %>
+  </div>
+  <br /> -->
 
   <div>&nbsp;<%= form.submit class:'btn btn-success' %></div>
   <br />

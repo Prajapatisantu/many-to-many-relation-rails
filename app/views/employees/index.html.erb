@@ -4,7 +4,9 @@
   <strong><%= notice %></strong>
 </div>
 <% end %> &nbsp;<%= link_to 'New Employee' ,new_employee_path,class:'btn
-btn-dark' %>
+btn-dark' %> &nbsp; &nbsp; <%= link_to 'New Project', new_project_path,
+class:'btn btn-dark' %> &nbsp; &nbsp; <%= link_to 'New Company',
+new_company_path, class:'btn btn-dark' %>
 
 <table class="table">
   <thead class="thead-light">
@@ -25,6 +27,7 @@ btn-dark' %>
       <td><%= e.name %></td>
       <td><%= e.skill %></td>
       <td><%= e.company_id %></td>
+
       <td><%= link_to 'Show' ,employee_path(e),class:'nav-link active' %></td>
       <td>
         <%= link_to 'Edit' , edit_employee_path(e),class:'nav-link active' %>

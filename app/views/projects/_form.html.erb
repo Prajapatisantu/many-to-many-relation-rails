@@ -1,0 +1,28 @@
+<div class="container">
+  <%= form_with(model:@project, local: true) do |form| %>
+
+  <div>
+    <%= form.label :Name, class: 'form-label' %><br />
+    <%= form.text_field :name, class:'form-control', placeholder: 'Project Name'
+    %>
+  </div>
+  <br />
+  <div>
+    <%= form.label :Description, class: 'form-label' %><br />
+    <%= form.text_field :desc, class:'form-control', placeholder: 'Project
+    Description' %>
+  </div>
+  <br />
+  <!-- <div>
+    <%= form.label :Employee, class: 'form-label' %><br />
+    <%= form.collection_select:employee_id, Employee.all,:id,:name %>
+  </div>
+
+  <br /> -->
+
+  <div>&nbsp;<%= form.submit class:'btn btn-success' %></div>
+  <br />
+  <% end %>
+</div>
+<!-- employee_id, options_for_select(Employee.all.collect{|emp|
+    [emp.name]}), class:'form-control' %> -->

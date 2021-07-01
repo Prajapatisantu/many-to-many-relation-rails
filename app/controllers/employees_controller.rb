@@ -24,7 +24,7 @@ class EmployeesController < ApplicationController
   
       if @employee.update(employee_params)
       flash[:notice] = "Your employee updated successfully"
-       redirect_to root_path
+       redirect_to employees_path
       else
         render :edit
       end
@@ -39,13 +39,13 @@ class EmployeesController < ApplicationController
       @destroy = Employee.find(params[:id])
       @destroy.destroy
       flash[:notice] = "Your employee deleted successfully"
-      redirect_to root_path
+      redirect_to employees_path
     end
 
 
   private
   def employee_params
-    params.require(:employee).permit(:name,:skill,:company_id)
+    params.require(:employee).permit(:name,:skill,:company_id,:project_id)
   end
   
 end
