@@ -5,6 +5,7 @@ class EmployeesController < ApplicationController
 
   def new
     @employee = Employee.new
+    
   end
   
   def create
@@ -32,7 +33,7 @@ class EmployeesController < ApplicationController
 
     def show
       @emp = Employee.find(params[:id])
-      
+      @projects = @emp.projects
     end
 
     def destroy
@@ -45,7 +46,7 @@ class EmployeesController < ApplicationController
 
   private
   def employee_params
-    params.require(:employee).permit(:name,:skill,:company_id,:project_id)
+    params.require(:employee).permit(:name,:skill,:company_id, project_ids: [])
   end
   
 end

@@ -2,28 +2,29 @@
   <%= form_with(model:@employee, local: true) do |form| %>
 
   <div>
-    <%= form.label :Name, class: 'form-label' %><br />
+    <%= form.label :name, class: 'form-label' %><br />
     <%= form.text_field :name, class:'form-control', placeholder: 'Enter Name'
     %>
   </div>
   <br />
   <div>
-    <%= form.label :Skill, class: 'form-label' %><br />
+    <%= form.label :skill, class: 'form-label' %><br />
     <%= form.text_field :skill, class:'form-control', placeholder: 'Enter Skill'
     %>
   </div>
   <br />
   <div>
-    <%= form.label :Company, class: 'form-label' %><br />
+    <%= form.label :company, class: 'form-label' %><br />
     <%= form.collection_select:company_id, Company.all,:id,:name %>
   </div>
   <br />
 
-  <!-- <div>
-    <%= form.label :Projects, class: 'form-label' %><br />
-    <%= form.collection_select:project_id, Project.all,:id,:name %>
+  <%= form.label :projects, class: 'form-label' %><br />
+  <div class="field">
+    <%= collection_check_boxes(:employee, :project_ids, Project.all,:id,:name) %>
   </div>
-  <br /> -->
+
+  <br />
 
   <div>&nbsp;<%= form.submit class:'btn btn-success' %></div>
   <br />

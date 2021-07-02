@@ -5,14 +5,14 @@
   <th>Employee_name</th>
   <th>Employee_skill</th>
   <th>Company_ID</th>
-  <th>Project_ID</th>
+  <th>project_name</th>
 
   <tr>
     <td><%= @emp.id %></td>
     <td><%= @emp.name %></td>
     <td><%= @emp.skill %></td>
     <td><%= @emp.company_id %></td>
-    <td><%= @emp.project_id %></td>
+    <td><%= @projects.map {|k| k.name}.join(', ') %></td>
   </tr>
 </table>
 &nbsp;<%= link_to 'Back',employees_path, class: "btn btn-secondary" %> &nbsp;<%=

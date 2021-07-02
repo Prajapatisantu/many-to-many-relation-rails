@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
-      flash[:notice] = "Your project assigned successfully"
+      flash[:notice] = "Your project created successfully"
       redirect_to employees_path
     end 
   end
@@ -35,6 +35,6 @@ class ProjectsController < ApplicationController
 
   private
   def project_params
-    params.require(:project).permit(:name,:desc,:employee_id)
+    params.require(:project).permit(:name,:desc,employee_ids: [])
   end
 end

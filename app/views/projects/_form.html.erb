@@ -13,12 +13,13 @@
     Description' %>
   </div>
   <br />
-  <!-- <div>
-    <%= form.label :Employee, class: 'form-label' %><br />
-    <%= form.collection_select:employee_id, Employee.all,:id,:name %>
+  <%= form.label :Employee, class: 'form-label' %><br />
+  <div class="field">
+    <%= collection_check_boxes(:project, :employee_ids, Employee.all,:id,:name)
+    %>
   </div>
 
-  <br /> -->
+  <br />
 
   <div>&nbsp;<%= form.submit class:'btn btn-success' %></div>
   <br />
